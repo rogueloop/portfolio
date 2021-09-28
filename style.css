@@ -1,0 +1,258 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.hero{
+    height: 100vh;
+    width: 100%;
+    background-image: url(oie_2764534Mn0Efzmp.jpg);
+    background-repeat: no-repeat;
+    background-color: rgb(132, 132, 132);
+    background-position: center;
+    }
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 45px;
+    padding-left: 10%;
+    padding-right: 10%;
+    color:rgba(51, 27, 169, 0.614);
+}
+
+.logo{
+
+    color: rgb(165, 243, 81);
+    font-size: 50px;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+}
+
+span{
+    color: rgb(246, 47, 157);
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px 30px;
+
+}
+nav ul li a{
+
+    color: white;
+    text-decoration: none;
+
+
+}
+nav ul li a:hover{
+    color: rgb(246, 47, 157);
+    transition: .5s;
+
+}
+
+.btn{
+    background-color: rgb(246, 47, 157);
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 10px 25px ;
+    border-radius: 30px;
+    transition: transform .4s;
+
+}
+.btn:hover{
+    transform: scale(1.1);
+}
+.content{
+position: absolute;
+top: 50%;
+left: 10%;
+transform: translateY(-50%);
+
+}
+h1{
+    color: white;
+    margin: 20px 0px 20px;
+    font-size: 80px;
+}
+h2{
+    color: white;
+    margin-bottom: 25px;
+    font-size: 40px;
+}
+
+h4{
+    color: white;
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+.news form{
+    width: 400px;
+    max-width: 100%;
+    position: relative;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    background-color: #021027;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  
+    mask-image: radial-gradient(
+      white 0%,
+      white 30%,
+      transparent 80%,
+      transparent
+    );
+  }
+  
+  .circle-container {
+    $particleNum: 200;
+    $particleColor: hsl(180, 100%, 80%);
+  
+    position: absolute;
+    transform: translateY(-10vh);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  
+    .circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      mix-blend-mode: screen;
+      background-image: radial-gradient(
+        hsl(180, 100%, 80%),
+        hsl(180, 100%, 80%) 10%,
+        hsla(180, 100%, 80%, 0) 56%
+      );
+  
+      animation: fadein-frames 200ms infinite, scale-frames 2s infinite;
+  
+      @keyframes fade-frames {
+        0% {
+          opacity: 1;
+        }
+  
+        50% {
+          opacity: 0.7;
+        }
+  
+        100% {
+          opacity: 1;
+        }
+      }
+  
+      @keyframes scale-frames {
+        0% {
+          transform: scale3d(0.4, 0.4, 1);
+        }
+  
+        50% {
+          transform: scale3d(2.2, 2.2, 1);
+        }
+  
+        100% {
+          transform: scale3d(0.4, 0.4, 1);
+        }
+      }
+    }
+  
+    $particleBaseSize: 8;
+  
+    
+    @for $i from 1 through $particleNum {
+      &:nth-child(#{$i}) {
+        $circleSize: random($particleBaseSize);
+        width: $circleSize + px;
+        height: $circleSize + px;
+  
+        $startPositionY: random(10) + 100;
+        $framesName: "move-frames-" + $i;
+        $moveDuration: 28000 + random(9000) + ms;
+  
+        animation-name: #{$framesName};
+        animation-duration: $moveDuration;
+        animation-delay: random(37000) + ms;
+  
+        @keyframes #{$framesName} {
+          from {
+            transform: translate3d(
+              #{random(100) + vw},
+              #{$startPositionY + vh},
+              0
+            );
+          }
+  
+          to {
+            transform: translate3d(
+              #{random(100) + vw},
+              #{- $startPositionY - random(30) + vh},
+              0
+            );
+          }
+        }
+  
+        .circle {
+          animation-delay: random(4000) + ms;
+        }
+      }
+    }
+  }
+  
+  .message {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    color: white;
+    font-family: "Josefin Slab", serif;
+    line-height: 27px;
+    font-size: 18px;
+    text-align: right;
+    pointer-events: none;
+    animation: message-frames 1.5s ease 5s forwards;
+    opacity: 0;
+    
+    @keyframes message-frames {
+      from {
+        opacity: 0;
+      }
+      
+      to {
+        opacity: 1;
+      }
+    }
+  }
